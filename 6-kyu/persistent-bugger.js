@@ -10,21 +10,36 @@
 
 // persistence(4) === 0 // because 4 is already a one-digit number
 
-const persistence = (num) => {
-  let len = num.toString().length;
-  let times = 0;
+// function persistence(num) {
+//   let len = num.toString().length;
+//   let times = 0;
 
-  while (len > 1) {
-    result = num
-      .toString()
+//   while (len > 1) {
+//     result = num
+//       .toString()
+//       .split('')
+//       .map(Number)
+//       .reduce((a, b) => a * b);
+
+//     len = result.toString().length;
+//     num = result;
+//     times++;
+//   }
+
+//   return times;
+// }
+
+const persistence = (num) => {
+  num = num.toString();
+  let times = 0;
+  while (num.length > 1) {
+    times++;
+    num = num
       .split('')
       .map(Number)
-      .reduce((a, b) => a * b);
-    len = result.toString().length;
-    num = result;
-    times++;
+      .reduce((a, b) => a * b)
+      .toString();
   }
-
   return times;
 };
 
